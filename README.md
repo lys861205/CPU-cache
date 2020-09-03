@@ -14,13 +14,20 @@
 
 linux查看缓存大小(CPU0举例)
 ```
+#一级缓存
 cat /sys/devices/system/cpu/cpu0/cache/index0/size
 32K
+#一级缓存
 cat /sys/devices/system/cpu/cpu0/cache/index1/size
 32K
+#二级缓存
 cat /sys/devices/system/cpu/cpu0/cache/index2/size
 1024K
+#三级缓存
 cat /sys/devices/system/cpu/cpu0/cache/index3/size
 28160K
+#cache line 大小
+cat /sys/devices/system/cpu/cpu0/cache/index0/coherency_line_size
+64B
 ```
 
