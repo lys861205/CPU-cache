@@ -13,7 +13,7 @@
 * RAM内存存取速度: **107个CPU时钟周期**
 
 linux查看缓存大小(CPU0举例)
-'''
+```
 cat /sys/devices/system/cpu/cpu0/cache/index0/size
 32K
 cat /sys/devices/system/cpu/cpu0/cache/index1/size
@@ -22,5 +22,5 @@ cat /sys/devices/system/cpu/cpu0/cache/index2/size
 1024K
 cat /sys/devices/system/cpu/cpu0/cache/index3/size
 28160K
-'''
+```
 
