@@ -49,8 +49,12 @@ Modified(已修改) Exclusive(独享) Shared(共享) Invalid(无效)
 
 状态转移图
 
+<img src="https://github.com/lys861205/CPU-cache/blob/master/MESI.png" width="500" heigth="400">
+
 举例说明：
 | 当前操作 | CPU0 | CPU1 | Memory | 说明 |
 |---------|-------|------|-------|------|
+|CPU0read(x)|x=1(E)||x=1|只有一个CPU有 x 变量，
+所以，状态是 Exclusive|
 
 
