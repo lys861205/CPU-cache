@@ -40,4 +40,17 @@ Cache的放置策略决定了内存中的数据会拷贝到CPU Cache中的哪个
 * 为了避免上述的两种方案的问题，于是就要容忍一定的hash冲突，也就出现了 N-Way 关联。也就是把连续的N个Cache Line绑成一组，然后，先把找到相关的组，然后再在这个组内找到相关的Cache Line
 
 ## 缓存一致性
+缓存的写操作有2种策略
+* Write Back     写操作只在cache上，然后flush到内存上
+* Write Through  写操作同时写到cache和内存上
+为了提高写的性能，主流的CPU采用的是Write Back的策略，因为直接写内存太慢了
+缓存一致性通过mesi协议更新，数据在缓存中有4种状态
+Modified(已修改) Exclusive(独享) Shared(共享) Invalid(无效)
+
+状态转移图
+
+举例说明：
+| 当前操作 | CPU0 | CPU1 | Memory | 说明 |
+|---------|-------|------|-------|------|
+
 
