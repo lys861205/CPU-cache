@@ -30,4 +30,12 @@ cat /sys/devices/system/cpu/cpu0/cache/index3/size
 cat /sys/devices/system/cpu/cpu0/cache/index0/coherency_line_size
 64B
 ```
+## 缓存命中
+缓存基本上把后面的数据加载到离自己近的地方，加载数据单位是cache line；
+比如：Cache Line 是最小单位(64Bytes)；所以先把Cache分成多个Cache Line；比如L1有32KB, 32KB/64B=512个Cache Line
+Cache的放置策略决定了内存中的数据会拷贝到CPU Cache中的哪个位置上，需要有一种地址关联算法，能够让内存中的数据可以被
+映射到Cache中来；基本方法如下
+* 一种方法是，任何一个内存地址的数据可以被缓存在任何一个Cache Line里，这种方法是最灵活的，但是，如果我们要知道一个内存是否存在于Cache中，我们就需要进行O(n)复杂度的Cache遍历，这是很没有效率的
+* 另一种方法，为了降低缓存搜索算法，我们需要使用像Hash Table这样的数据结构，最简单的hash table就是做“求模运算”，比如：我们的L1 Cache有512个Cache Line，那么，公式：（内存地址 mod 512）* 64 就可以直接找到所在的Cache地址的偏移了。但是，这样的方式需要我们的程序对内存地址的访问要非常地平均，不然冲突就会非常严重。这成了一种非常理想的情况了
+* 为了避免上述的两种方案的问题，于是就要容忍一定的hash冲突，也就出现了 N-Way 关联。也就是把连续的N个Cache Line绑成一组，然后，先把找到相关的组，然后再在这个组内找到相关的Cache Line
 
