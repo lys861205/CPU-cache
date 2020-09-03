@@ -57,7 +57,7 @@ Modified(已修改) Exclusive(独享) Shared(共享) Invalid(无效)
 |CPU0read(x)|x=1(E)||x=1|只有一个CPU有 x 变量，所以，状态是 Exclusive|
 |CPU1 read(x)|x=1(S)|x=1(S)|x=1|有两个CPU都读取 x 变量，所以状态变成 Shared|
 |CPU0 write(x)|x=9(M)|x=1(I)|x=1|变量改变，在CPU0中状态变成 Modified，在CPU1中状态变成 Invalid|
-|变量 x 写回内存| x=9 (M)	|x=1(I)|x=9|目前的状态不变|
+|变量 x 写回内存| x=9(M)|x=1(I)|x=9|目前的状态不变|
 |CPU1read(x)|x=9(S)|x=9(S)|x=9|变量同步到所有的Cache中，状态回到Shared|
 
 
