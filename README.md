@@ -43,6 +43,7 @@ Cache的放置策略决定了内存中的数据会拷贝到CPU Cache中的哪个
 缓存的写操作有2种策略
 * Write Back     写操作只在cache上，然后flush到内存上
 * Write Through  写操作同时写到cache和内存上
+
 为了提高写的性能，主流的CPU采用的是Write Back的策略，因为直接写内存太慢了
 缓存一致性通过mesi协议更新，数据在缓存中有4种状态
 Modified(已修改) Exclusive(独享) Shared(共享) Invalid(无效)
