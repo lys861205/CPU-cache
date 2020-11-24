@@ -61,4 +61,9 @@ Modified(已修改) Exclusive(独享) Shared(共享) Invalid(无效)
 |变量 x 写回内存| x=9(M)|x=1(I)|x=9|目前的状态不变|
 |CPU1 read(x)|x=9(S)|x=9(S)|x=9|变量同步到所有的Cache中，状态回到Shared|
 
+## 如何让CPU跑的更快（提高缓存的命中率）
+* 数据缓存 遍历数据的时候，按照内存的布局顺序进行操作，CPU Cache根据CPU Cache Line批量操作数据
+* 指令缓存 根据CPU的分支预测，提前把if指令放到指令缓存中
+
+
 
